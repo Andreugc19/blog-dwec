@@ -10,13 +10,12 @@ const Inicio = () => {
 
     return ( 
         <div className="home">
-            { blogs.map((blog)=>{
-                return(
+            { blogs.map((blog)=>
                 <div className="blog-preview" key={ blog.id }>
                     <h2>{ blog.titulo }</h2>
                     <p>Escrito por { blog.autor }</p>
-                </div>)
-            })}
+                </div>
+            )}
         </div>
      );
 }
