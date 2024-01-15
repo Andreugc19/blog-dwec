@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import BlogList from "./BlogList";
 
 const Inicio = () => {
 
@@ -8,16 +9,27 @@ const Inicio = () => {
         { titulo: "Elementos Musicales", body: "fundamentos de la musica", autor: "Tomas Rossello", id: 3 }
     ])
 
+    const [nombre, setNombre] = useState("Ague");
+
+    const handleEliminarBlog = (id) => {
+        const nuevoBlog = blogs.filter(blog => blog.id !== id);
+        setBlogs(nuevoBlog);
+    }
+
+    useEffect(() => {
+        console.log("useEffect disparado");
+        console.log(blogs);
+    }, [nombre]);
+
     return ( 
         <div className="home">
-            { blogs.map((blog)=>
-                <div className="blog-preview" key={ blog.id }>
-                    <h2>{ blog.titulo }</h2>
-                    <p>Escrito por { blog.autor }</p>
-                </div>
-            )}
+            <BlogList blogs = { blogs } titulo = "Listado Completo de Blogs"  handleEliminarBlog = { handleEliminarBlog } />
+            <p>{ nombre }</p>
+            <button onClick={() => setNombre(("Maria"))}>Cambio de nombre</button>
         </div>
      );
 }
  
 export default Inicio;
+
+// useEffect
