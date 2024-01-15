@@ -1,4 +1,4 @@
-const BlogList = ({titulo, blogs, handleEliminarBlog}) => {
+const BlogList = ({titulo, blogs}) => {
 
     // const blogs = props.blogs;
     // const titulo = props.titulo;
@@ -10,7 +10,6 @@ const BlogList = ({titulo, blogs, handleEliminarBlog}) => {
                 <div className="blog-preview" key={ blog.id }>
                     <h2>{ blog.titulo }</h2>
                     <p>Escrito por { blog.autor }</p>
-                    <button onClick={ () => handleEliminarBlog(blog.id) }>Elimina blog</button>
                 </div>
             ) }
         </div>
@@ -18,3 +17,10 @@ const BlogList = ({titulo, blogs, handleEliminarBlog}) => {
 }
  
 export default BlogList;
+
+/*
+ *  /blogs      GET     Devuelve todos los blogs
+ *  /blogs{id}  GET     Devuelve un unico blog
+ *  /blogs      POST    Añadir un nuevo blog
+ *  /blogs/{id} DELETE  Eliminar un blog
+*/
